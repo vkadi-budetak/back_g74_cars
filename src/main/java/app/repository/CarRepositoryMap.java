@@ -2,6 +2,7 @@ package app.repository;
 
 import app.domain.Car;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class CarRepositoryMap implements CarRepository {
@@ -10,6 +11,12 @@ public class CarRepositoryMap implements CarRepository {
     private final Map<Long, Car> database = new HashMap<>();
     // Поле которое учитывает какой идентификатор сейчас в БД максимальный
     private long maxId;
+
+    public CarRepositoryMap() {
+        save(new Car("Volkswagen", 2010, new BigDecimal(10000)));
+        save(new Car("Mazda", 2015, new BigDecimal(20000)));
+        save(new Car("Honda", 2020, new BigDecimal(30000)));
+    }
 
     // меотод зберігає в базі даних
     @Override
