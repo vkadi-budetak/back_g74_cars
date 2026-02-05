@@ -2,6 +2,7 @@ package app.service;
 
 import app.domain.Car;
 import app.repository.CarRepository;
+import app.repository.CarRepositoryJdbc;
 import app.repository.CarRepositoryMap;
 
 import java.util.List;
@@ -9,7 +10,10 @@ import java.util.List;
 public class CarServiceImpl implements CarService {
 
     // це робимо для того щоб спілкуватися із репозиторієм
-    private final CarRepository repository = new CarRepositoryMap();
+//    private final CarRepository repository = new CarRepositoryMap();
+
+    // міняємо для CarRepositoryJdbc для того щоб спілкуватися із репозиторієм!! (Наш репозиторый тепер працює із CarRepositoryJdbc)
+    private final CarRepository repository = new CarRepositoryJdbc();
 
     @Override
     public Car save(Car car) {

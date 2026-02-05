@@ -10,8 +10,21 @@ public class Car {
     private int year;
     private BigDecimal price;
 
+
+    // Створюємо пустий конструктор(він потрібний для нашого jackson(він у ньому бцде створювти автомобіі))
+    public Car() {
+    }
+
     // Створюємо конструктор без id
     public Car(String brand, int year, BigDecimal price) {
+        this.brand = brand;
+        this.year = year;
+        this.price = price;
+    }
+
+    // Створюємо конструктор для файла CarRepositoryJdbc щоб його перевикористати
+    public Car(Long id, String brand, int year, BigDecimal price) {
+        this.id = id;
         this.brand = brand;
         this.year = year;
         this.price = price;
