@@ -62,6 +62,17 @@ public class CarRepositoryHibernate implements CarRepository {
 
     @Override
     public void deleteById(Long id) {
-
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            Car foundCar = findById(id);
+            entityManager.remove(foundCar);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw new RuntimeException(e);
+        }
     }
 }
