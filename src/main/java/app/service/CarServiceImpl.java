@@ -2,6 +2,7 @@ package app.service;
 
 import app.domain.Car;
 import app.repository.CarRepository;
+import app.repository.CarRepositoryHibernate;
 import app.repository.CarRepositoryJdbc;
 import app.repository.CarRepositoryMap;
 
@@ -13,7 +14,11 @@ public class CarServiceImpl implements CarService {
 //    private final CarRepository repository = new CarRepositoryMap();
 
     // міняємо для CarRepositoryJdbc для того щоб спілкуватися із репозиторієм!! (Наш репозиторый тепер працює із CarRepositoryJdbc)
-    private final CarRepository repository = new CarRepositoryJdbc();
+//    private final CarRepository repository = new CarRepositoryJdbc();
+
+    // міняємо для CarRepositoryHibernate для того щоб спілкуватися із репозиторієм!! (Наш репозиторый тепер працює із CarRepositoryHibernate)
+    private final CarRepository repository = new CarRepositoryHibernate();
+
 
     @Override
     public Car save(Car car) {
@@ -31,7 +36,7 @@ public class CarServiceImpl implements CarService {
         // данных, которые пришли из базы, например фильтрация
         // К примеру ми можем отфильтровать автомобили которые пока не
         // готовы к продаже, например, находяться в ремонте
-        return  cars;
+        return cars;
     }
 
     @Override

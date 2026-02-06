@@ -16,7 +16,7 @@ public class CarRepositoryJdbc implements CarRepository {
     /// і в наступних методах(save, findAll....) будемо його перевикористовувати
     private Connection getConnection() {
         try {
-            // потрібно загрути драйвер в память компютера
+            // потрібно загрузити драйвер в память компютера
             Class.forName(DB_DRIVER_PATH); // ми зробили статичний імпорт навели на DB_DRIVER_PATH і натиснули option enter
             String dbUrl = DB_URL + DB_NAME;
 //            String dbUrl = Constants.DB_URL + Constants.DB_NAME;

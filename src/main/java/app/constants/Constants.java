@@ -1,9 +1,8 @@
 package app.constants;
 
 public interface Constants {
-
     /// через який драйвер буде підключетися база
-    String DB_DRIVER_PATH = "org.postgresal.Driver";
+    String DB_DRIVER_PATH = "org.postgresql.Driver";
     /// Де лежить база
     String DB_URL = "jdbc:postgresql://localhost:5432/";
     /// Назва бази
